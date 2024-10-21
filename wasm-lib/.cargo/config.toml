@@ -1,0 +1,20 @@
+[net]
+git-fetch-with-cli = true
+
+[build]
+target = "wasm32-unknown-unknown"
+
+[target.wasm32-unknown-unknown]
+# Make sure tests can run using cargo test
+runner = 'wasm-bindgen-test-runner'
+rustflags = [
+    # Set stack size to 1MiB
+    "-C", "link-args=-z stack-size=1048576",
+    # Safari 15.2, Firefox 89, and Chrome 83 add support for 4GiB wasm heap,
+    # so we need to stay on 2GiB for now.
+    # See https://webkit.org/blog/12140/new-webkit-features-in-safari-15-2/
+    # See https://v8.dev/blog/4gb-wasm-memory
+    "-C", "link-arg=--max-memory=2147483648",
+    # Needed when we enable reference types
+    "-C", "target-feature=+bulk-memory,+mutable-globals"
+]

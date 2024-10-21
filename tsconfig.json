@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noEmitOnError": true,
+    "plugins": [],
+    "baseUrl": "./",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "types": ["node"]
+  },
+  "include": [
+    // Include every file in typechecking
+    "./**/*"
+  ],
+  "exclude": ["node_modules"]
+}
